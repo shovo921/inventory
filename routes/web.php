@@ -13,11 +13,12 @@ use App\Http\Controllers\Admin\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//backend route
 Route::group(['prefix'=>'Admin'], function(){
-    Route::get('/user', [AdminController::class, 'index'])->name('index');
-
-
+    Route::get('/login', [AdminController::class, 'index'])->name('index');
 });
+
+//frontend route
 
 Route::get('/', function () {
     return view('welcome');
