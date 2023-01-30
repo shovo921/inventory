@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,9 @@ require __DIR__.'/auth.php';
 | Admin Routes
 |--------------------------------------------------------------------------
 */
+
+//frontend route
+Route::get('/search',[Controller::class,'search'])->name('search');
 
 Route::get('/admin/login', [AuthenticatedSessionController::class, 'create'])->name('admin.login')->middleware('guest:admin');
 

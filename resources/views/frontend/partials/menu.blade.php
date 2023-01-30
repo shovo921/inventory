@@ -18,8 +18,8 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/logo.png">
+                    <a href="/" class="logo">
+                        <img src="{{asset('frontend')}}/assets/images/logo.png">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -27,7 +27,7 @@
                         <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                         <li class="scroll-to-section"><a href="#services">Services</a></li>
                         <li class="scroll-to-section"><a href="#about">About</a></li>
-                        <li class="scroll-to-section"><a href="search.html">Search</a></li>
+                        <li class="scroll-to-section"><a href="{{route('search')}}">Search</a></li>
                         <li class="scroll-to-section"><a href="#portfolio">Portfolio</a></li>
                         <li class="scroll-to-section"><a href="#video">Videos</a></li>
                         <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>

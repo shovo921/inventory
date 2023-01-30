@@ -1,3 +1,54 @@
 .search{
-    margin-top: 500px;
+    margin-top: 150px;
+    margin-bottom: 200px;
+}
+.single-item{
+    margin-top: 20px;
+}
+.Advance-search-title{
+    margin-bottom: 20px;
+}
+.search-content{
+    padding: 20px;
+}
+.search-button{
+    width: 100%;
+    margin-top: 20px;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.mb-10{
+    margin-bottom: 10px;
+}
+.member-name{
+    width: 100%;
+
+}
+.advance-search {
+    margin-top: 20px;
+}
+.age-fitering{
+    display: flex;
+    margin-top: 10px;
+
+
+}
+.age-fitering .minage input{
+    margin-top: 5px;
+    font-size:15px;
+    width : 90%;
+
+}
+.age-fitering .maxage input{
+    font-size:15px;
+    margin-top: 5px;
+    width : 90%;
+}
+.MARITALSTATUS{
+    margin-top: 25px;
+}
+
+.profession {
+    width: 100%;
 }

@@ -1052,7 +1052,11 @@
   /*--------------------------------------------------------------
   # Footer
   --------------------------------------------------------------*/
+.footer#footer{
+    margin: auto;
+}
   .footer {
+
 	padding: 20px 0;
 	font-size: 14px;
 	transition: all 0.3s;
@@ -1073,3 +1077,4 @@ ul.mt-3.list-disc.list-inside.text-sm.text-red-600 {
     color: red;
     font-size: 13px;
 }
+

@@ -4,7 +4,7 @@
             <div class="col-lg-3">
                 <div class="about footer-item">
                     <div class="logo">
-                        <a href="#"><img src="assets/images/logo.png" alt="Onix Digital TemplateMo"></a>
+                        <a href="#"><img src="{{asset('frontend')}}/assets/images/logo.png" alt="Onix Digital TemplateMo"></a>
                     </div>
                     <a href="#">info@company.com</a>
                     <ul>
@@ -51,7 +51,7 @@
                 <div class="copyright">
                     <p>Copyright © 2021 Onix Digital Co., Ltd. All Rights Reserved.
                         <br>
-                        Designed by <a rel="nofollow" href="https://templatemo.com" title="free CSS templates">TemplateMo</a></p>
+                        Designed by <a rel="nofollow" href="" title="free CSS templates">gotokbari</a></p>
                 </div>
             </div>
         </div>
