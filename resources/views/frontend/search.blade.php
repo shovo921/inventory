@@ -41,7 +41,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="age-fitering">
+                                    <div class="age-fitering height">
                                         <div class="minage">
                                             <level>MINIMUM AGE</level>
                                             <input type="number">
@@ -180,7 +180,7 @@
                             <div class="col-md-4">
                                 <div class="single-item">
                                     <div class="card" >
-                                        <img src="./assets/imagesa/profile.jpg" class="card-img-top" alt="...">
+                                        <img src="{{asset('frontend')}}/assets/images/profile.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <p class="card-text">Brithyear : 1997 year</p>
                                             <p class="card-text">Name : md nur islam</p>
@@ -196,7 +196,7 @@
                             <div class="col-md-4">
                                 <div class="single-item">
                                     <div class="card">
-                                        <img src="./assets/imagesa/profile.jpg" class="card-img-top" alt="...">
+                                        <img src="{{asset('frontend')}}/assets/images/profile.jpg"  class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <p class="card-text">Brithyear : 1997 year</p>
                                             <p class="card-text">Name : md nur islam</p>
@@ -209,7 +209,7 @@
                             <div class="col-md-4">
                                 <div class="single-item">
                                     <div class="card" >
-                                        <img src="./assets/imagesa/profile.jpg" class="card-img-top" alt="...">
+                                        <img src="{{asset('frontend')}}/assets/images/profile.jpg"  class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <p class="card-text">Brithyear : 1997 year</p>
                                             <p class="card-text">Name : md nur islam</p>
@@ -222,7 +222,7 @@
                             <div class="col-md-4">
                                 <div class="single-item">
                                     <div class="card" >
-                                        <img src="./assets/imagesa/profile.jpg" class="card-img-top" alt="...">
+                                        <img src="{{asset('frontend')}}/assets/images/profile.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <p class="card-text">Brithyear : 1997 year</p>
                                             <p class="card-text">Name : md nur islam</p>
@@ -235,7 +235,7 @@
                             <div class="col-md-4">
                                 <div class="single-item">
                                     <div class="card" >
-                                        <img src="./assets/imagesa/profile.jpg" class="card-img-top" alt="...">
+                                        <img src="{{asset('frontend')}}/assets/images/profile.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <p class="card-text">Brithyear : 1997 year</p>
                                             <p class="card-text">Name : md nur islam</p>
@@ -248,7 +248,7 @@
                             <div class="col-md-4">
                                 <div class="single-item">
                                     <div class="card" >
-                                        <img src="./assets/imagesa/profile.jpg" class="card-img-top" alt="...">
+                                        <img src="{{asset('frontend')}}/assets/images/profile.jpg"  class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <p class="card-text">Brithyear : 1997 year</p>
                                             <p class="card-text">Name : md nur islam</p>
@@ -261,7 +261,7 @@
                             <div class="col-md-4">
                                 <div class="single-item">
                                     <div class="card" >
-                                        <img src="./assets/imagesa/profile.jpg" class="card-img-top" alt="...">
+                                        <img src="{{asset('frontend')}}/assets/images/profile.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <p class="card-text">Brithyear : 1997 year</p>
                                             <p class="card-text">Name : md nur islam</p>
@@ -274,7 +274,7 @@
                             <div class="col-md-4">
                                 <div class="single-item">
                                     <div class="card" >
-                                        <img src="./assets/imagesa/profile.jpg" class="card-img-top" alt="...">
+                                        <img src="{{asset('frontend')}}/assets/images/profile.jpg"  class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <p class="card-text">Brithyear : 1997 year</p>
                                             <p class="card-text">Name : md nur islam</p>
@@ -287,7 +287,7 @@
                             <div class="col-md-4">
                                 <div class="single-item">
                                     <div class="card" >
-                                        <img src="./assets/imagesa/profile.jpg" class="card-img-top" alt="...">
+                                        <img src="{{asset('frontend')}}/assets/images/profile.jpg" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <p class="card-text">Brithyear : 1997 year</p>
                                             <p class="card-text">Name : md nur islam</p>
@@ -307,6 +307,12 @@
 
         </div>
     </section>
+
+    <div class="contact-left-dec">
+        <img src="{{asset('frontend/assets/images/contact-left-dec.png')}}" alt="">
+    </div>
+
+
 
 
 

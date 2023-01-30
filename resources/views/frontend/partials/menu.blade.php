@@ -24,14 +24,14 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                        <li class="scroll-to-section"><a href="#services">Services</a></li>
-                        <li class="scroll-to-section"><a href="#about">About</a></li>
+                        <li class="scroll-to-section"><a href="{{url('/#top')}}" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="{{url('/#services')}}">Services</a></li>
+                        <li class="scroll-to-section"><a href="{{url('/#about')}}">About</a></li>
                         <li class="scroll-to-section"><a href="{{route('search')}}">Search</a></li>
-                        <li class="scroll-to-section"><a href="#portfolio">Portfolio</a></li>
-                        <li class="scroll-to-section"><a href="#video">Videos</a></li>
-                        <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
-                        <li class="scroll-to-section"><div class="main-red-button-hover"><a href="#contact">Contact Us Now</a></div></li>
+                        <li class="scroll-to-section"><a href="{{url('/#portfolio')}}">Portfolio</a></li>
+                        <li class="scroll-to-section"><a href="{{url('/#video')}}">Videos</a></li>
+                        <li class="scroll-to-section"><a href="{{url('/#contact')}}">Contact Us</a></li>
+                        <li class="scroll-to-section"><div class="main-red-button-hover"><a href="{{route('login')}}">Login / Register</a></div></li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>

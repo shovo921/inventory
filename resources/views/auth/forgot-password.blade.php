@@ -1,36 +1,46 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('frontend.layouts.master')
+@section('content')
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-        </div>
+
+        <div class="container">
+            <div class="forgot-password">
+    <div class="card text-center"  style="width: 500px">
+        <div class="card-header h5 text-white bg-primary">Password Reset</div>
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+        <div class="card-body px-5">
+            <p class="card-text py-2">
+                Enter your email address and we'll send you an email with instructions to reset your password.
+            </p>
+            <form method="POST" action="{{ route('password.email') }}">
+                @csrf
+            <div class="form-outline">
+                <input type="email" id="typeEmail" class="form-control my-3"  name="email" :value="old('email')" required autofocus />
+                <label class="form-label" for="typeEmail" >Email input</label>
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
+            <button type="submit" class="btn btn-primary w-100">Reset password</button>
+            </form>
+            <div class="d-flex justify-content-between mt-4">
+                <a class="" href="#">Login</a>
+                <a class="" href="#">Register</a>
             </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+        </div>
+    </div>
+
+
+
+    <div class="contact-left-dec">
+        <img src="{{asset('frontend/assets/images/contact-left-dec.png')}}" alt="">
+    </div>
+    </div>
+
+    <div class="footer-dec">
+        <img src="{{asset('frontend/assets/images/footer-dec.png')}}" alt="">
+    </div>
+    </div>
+
+@endsection
