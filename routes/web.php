@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\AdminController;
@@ -47,10 +48,25 @@ Route::get('/admin/login', [AuthenticatedSessionController::class, 'create'])->n
 
 Route::post('/admin/login/store', [AuthenticatedSessionController::class, 'store'])->name('admin.login.store');
 
+//admin auth
 Route::group(['middleware' => 'admin'], function() {
 
     Route::get('/admin', [HomeController::class, 'index'])->name('admin.dashboard');
 
     Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
 
+});
+
+
+//admin panel
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::group(['middleware' => 'admin'], function () {
+
+        Route::get('/banner/list', [BannerController::class, 'index'])->name('banner.list');
+        Route::get('/banner/create', [BannerController::class, 'create'])->name('banner.create');
+        Route::post('/banner/store', [BannerController::class, 'store'])->name('banner.store');
+
+
+    });
 });
