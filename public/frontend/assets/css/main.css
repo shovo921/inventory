@@ -30,7 +30,7 @@
 }
 .age-fitering{
     display: flex;
-    margin-top: 10px;
+    margin-top: 20px;
 
 
 }
@@ -84,5 +84,8 @@
 .forgot-password {
     margin-top: 200px;
     margin-left: 300px;
+}
+.profession{
+    margin-top: 10px;
 }
 

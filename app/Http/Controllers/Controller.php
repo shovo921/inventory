@@ -12,9 +12,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
-    public  function  search (){
-        return view('frontend.search');
-    }
+
 }
 
 

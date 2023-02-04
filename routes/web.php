@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\AdminController;
@@ -42,7 +43,9 @@ require __DIR__.'/auth.php';
 */
 
 //frontend route
-Route::get('/search',[Controller::class,'search'])->name('search');
+Route::get('/search',[SearchController::class,'index'])->name('search.index');
+Route::post('/search',[SearchController::class,'search'])->name('search');
+
 
 Route::get('/admin/login', [AuthenticatedSessionController::class, 'create'])->name('admin.login')->middleware('guest:admin');
 
