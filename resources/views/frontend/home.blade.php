@@ -614,7 +614,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <fieldset class="textarea-contact">
-                                    <textarea rows="4" cols="50" type="text" name="message" id="website" placeholder="Your Messege" ></textarea>
+                                    <textarea rows="4" cols="27" type="text" name="message" id="website" placeholder="Your Messege" ></textarea>
                                     <span class="text-danger">
                                         @error('message')
                                         {{$message}}
