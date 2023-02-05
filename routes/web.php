@@ -45,6 +45,7 @@ require __DIR__.'/auth.php';
 //frontend route
 Route::get('/search',[SearchController::class,'index'])->name('search.index');
 Route::post('/search',[SearchController::class,'search'])->name('search');
+Route::post('/contact',[Controller::class,'ContactStore'])->name('contact');
 
 
 Route::get('/admin/login', [AuthenticatedSessionController::class, 'create'])->name('admin.login')->middleware('guest:admin');

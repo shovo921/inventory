@@ -1,6 +1,8 @@
 .search{
     margin-top: 150px;
     margin-bottom: 200px;
+    position: relative;
+    z-index: 2;
 }
 .single-item{
     margin-top: 20px;
@@ -87,5 +89,9 @@
 }
 .profession{
     margin-top: 10px;
+}
+
+.textarea-contact textarea{
+    border-color: #9bdbf8;
 }
 
