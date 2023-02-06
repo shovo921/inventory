@@ -44,7 +44,7 @@ class Contactmail extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'email.conatct',
+            markdown: 'email.admin',
             with: ['name'=>$this->data->name],
         );
     }

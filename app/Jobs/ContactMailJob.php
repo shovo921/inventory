@@ -15,14 +15,16 @@ class ContactMailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     public  $data;
+    public $adminuser;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($conatct,$admin)
     {
-        $this->data=$data;
+        $this->data=$conatct;
+        $this->adminuser=$admin;
     }
 
     /**
@@ -32,6 +34,10 @@ class ContactMailJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to('shovodas921@gmail.com')->send(new Contactmail($this->data));
+        Mail::to($this->data->email)->send(new Contactmail($this->data));
+        foreach ($this->adminuser as $user)
+        {
+            Mail::to($user->email)->send(new Contactmail($this->data));
+        }
     }
 }

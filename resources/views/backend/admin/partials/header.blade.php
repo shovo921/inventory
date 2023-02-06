@@ -5,5 +5,7 @@
     <meta name="robots" content="noindex, nofollow">
     <meta content="" name="description">
     <meta content="" name="keywords">
+
+
     @include('backend.admin.partials.styles')
 </head>

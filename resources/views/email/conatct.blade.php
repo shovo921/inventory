@@ -1,13 +1,16 @@
-<x-mail::message>
-# Introduction
-{{$data->name}}
-The body of your message.
+{{--<x-mail::message>--}}
+{{--# Introduction--}}
+{{--{{$data->name}}--}}
+{{--The body of your message.--}}
 
-    {{$name}}
-<x-mail::button :url="''">
-Button Text
-</x-mail::button>
+{{--    {{$name}}--}}
+{{--<x-mail::button :url="''">--}}
+{{--Button Text--}}
 
-Thanks,<br>
-{{ config('app.name') }}
-</x-mail::message>
+{{--</x-mail::button>--}}
+
+{{--Thanks,<br>--}}
+{{--{{ config('app.name') }}--}}
+{{--</x-mail::message>--}}
+
+<p>skdskdnksdn</p>

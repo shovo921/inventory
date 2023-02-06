@@ -12,6 +12,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Http\Requests\ContactRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -23,6 +25,7 @@ class Controller extends BaseController
     {
 
         $validated = $request->validated();
+        $adminuser= DB::table('admins')->get();
 
 
         $contact = Contact::create([
@@ -33,7 +36,8 @@ class Controller extends BaseController
             'messege' => $request->message,
         ]);
 
-        ContactMailJob::dispatch($contact);
+
+        ContactMailJob::dispatch($contact,$adminuser);
         return redirect()->back()->with('message', 'Data added Successfully');
 
 
