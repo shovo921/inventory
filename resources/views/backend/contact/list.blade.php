@@ -34,22 +34,23 @@
                                 </thead>
                                 <tbody>
                                 <?php
+
                                 $number=1;
                                 ?>
-                                @foreach($data as $data)
+                                @foreach($data as $data1)
 
                                 <tr>
                                     <th scope="row">{{$number++ }}</th>
-                                    <td>{{$data->name}}</td>
-                                    <td>{{$data->email }}</td>
-                                    <td>{{$data->phone}}</td>
+                                    <td>{{$data1->name}}</td>
+                                    <td>{{$data1->email }}</td>
+                                    <td>{{$data1->phone}}</td>
 
-                                    <td>{{$data->subject}}</td>
-                                    <td>{{ Str::limit($data->messege, 10) }}</td>
-                                    <td>{{$data->created_at->toDateString()}}</td>
-                                    <td><a class="btn btn-success btn-sm" href="{{ route('conatct.details', ['id' => $data->id]) }}" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Tooltip on top"><i class="bi bi-eye"></i></a>
+                                    <td>{{$data1->subject}}</td>
+                                    <td>{{ Str::limit($data1->messege, 10) }}</td>
+                                    <td>{{$data1->created_at->toDateString()}}</td>
+                                    <td><a class="btn btn-success btn-sm" href="{{ route('conatct.details', ['id' => $data1->id]) }}" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Tooltip on top"><i class="bi bi-eye"></i></a>
 
-                                        <a type="button" class="btn btn-danger btn-sm delete"  role="button" title="please, click to delete Contact"  data-bs-toggle="modal" data-bs-target="#basicModal" onclick="myFunction({{$data->id}})" ><i class="bi bi-x-circle"></i></a></td>
+                                        <a type="button" class="btn btn-danger btn-sm delete"  role="button" title="please, click to delete Contact"  data-bs-toggle="modal" data-bs-target="#basicModal" onclick="myFunction({{$data1->id}})" ><i class="bi bi-x-circle"></i></a></td>
                                 </tr>
 
 

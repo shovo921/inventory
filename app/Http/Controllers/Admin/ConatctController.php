@@ -10,7 +10,7 @@ class ConatctController extends Controller
 {
     public function index()
     {
-        $data = Contact::orderBy("id", "desc")->get()->first();
+        $data = Contact::orderBy("id", "desc")->get();
 
         return view('backend.contact.list', compact('data'));
     }
@@ -18,7 +18,7 @@ class ConatctController extends Controller
 
     public function details($id)
     {
-        $data = Contact::where('id', $id)->firstorfail()->get();
+        $data = Contact::where('id', $id)->get()->first();
         return view('backend.contact.view', compact('data'));
 
     }
