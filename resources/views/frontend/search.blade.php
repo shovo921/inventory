@@ -38,7 +38,6 @@
 
     <section>
 
-
         <div class="search">
             <div class="container">
 
@@ -349,11 +348,6 @@
     <div class="contact-left-dec">
         <img src="{{asset('frontend/assets/images/contact-left-dec.png')}}" alt="">
     </div>
-
-
-
-
-
 
 
 
