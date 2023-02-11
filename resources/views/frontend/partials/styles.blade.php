@@ -1,4 +1,4 @@
-@yield('push_bofore_style')
+@yield('push_before_style')
 <!-- Bootstrap core CSS -->
 <link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 <!-- Additional CSS Files -->

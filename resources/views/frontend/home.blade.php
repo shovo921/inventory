@@ -594,13 +594,14 @@
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <input  pattern="^(0([1-9]{1}-?[1-9]\d{3}|[1-9]{2}-?\d{3}|[1-9]{2}\d{1}-?\d{2}|[1-9]{2}\d{2}-?\d{1})-?\d{4}|0[789]0-?\d{4}-?\d{4}|050-?\d{4}-?\d{4})$" oninput="setCustomValidity(' ')" oninvalid="this.setCustomValidity('Not Valid')" onchange="try{setCustomValidity('')}catch(e){}"  type="number" name="phone" id="surname" placeholder="Phone Number" autocomplete="on" required>
+                                    <input  pattern="/(01)[0-9]{9}/"  type="number" name="phone" id="surname" placeholder="Phone Number" autocomplete="on" required>
 
                                     <span class="text-danger">
                                         @error('phone')
                                         {{$message}}
                                         @enderror
-                                    </span>                                </fieldset>
+                                    </span>
+                                </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>

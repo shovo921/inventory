@@ -31,6 +31,21 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+
+    public function stepone(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+        $name = $request->input('name');
+        $email = $request->input('email');
+        session(['name' => $name, 'email' => $email]);
+
+        return redirect()->back();
+
+    }
     public function store(Request $request)
     {
         $request->validate([
@@ -44,6 +59,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
 
         event(new Registered($user));
 

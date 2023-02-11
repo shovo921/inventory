@@ -27,7 +27,6 @@ class Controller extends BaseController
         $validated = $request->validated();
         $adminuser= DB::table('admins')->get();
 
-
         $contact = Contact::create([
             'name' => $request->name,
             'email' => $request->email,
