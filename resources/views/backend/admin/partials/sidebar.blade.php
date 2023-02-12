@@ -22,26 +22,23 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed " data-bs-target="#components-nav-c" data-bs-toggle="collapse" href="#"> <i class="bi bi-menu-button-wide"></i><span>Conatct</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+            <a class="nav-link collapsed " data-bs-target="#components-nav-c" data-bs-toggle="collapse"  href="#"> <i class="bi bi-menu-button-wide"></i><span>Conatct</span><i class="bi bi-chevron-down ms-auto"></i> </a>
             <ul id="components-nav-c" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li> <a href="{{route('conatct.list')}}"> <i class="bi bi-circle"></i><span>Conatct list</span> </a></li>
 
             </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-journal-text"></i><span>Home page setting</span><i class="bi bi-chevron-down ms-auto"></i> </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li> <a href="forms-elements.html"> <i class="bi bi-circle"></i><span>Form Elements</span> </a></li>
-                <li> <a href="forms-layouts.html"> <i class="bi bi-circle"></i><span>Form Layouts</span> </a></li>
-                <li> <a href="forms-editors.html"> <i class="bi bi-circle"></i><span>Form Editors</span> </a></li>
-                <li> <a href="forms-validation.html"> <i class="bi bi-circle"></i><span>Form Validation</span> </a></li>
+                <li> <a href="{{route('homepage.index')}}"> <i class="bi bi-circle"></i><span>Setting</span> </a></li>
             </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-layout-text-window-reverse"></i><span>Our Suecssfully Story</span><i class="bi bi-chevron-down ms-auto"></i> </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li> <a href="tables-general.html"> <i class="bi bi-circle"></i><span>General Tables</span> </a></li>
-                <li> <a href="tables-data.html"> <i class="bi bi-circle"></i><span>Data Tables</span> </a></li>
+                <li> <a href="tables-general.html"> <i class="bi bi-circle"></i><span>Create new Story</span> </a></li>
+                <li> <a href="tables-data.html"> <i class="bi bi-circle"></i><span>Story list</span> </a></li>
             </ul>
         </li>
         <li class="nav-item">

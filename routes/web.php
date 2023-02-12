@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\HomeaPageSettingController;
+use App\Http\Controllers\Admin\OurStoryController;
 use App\Http\Controllers\Controller;
 
 /*
@@ -76,6 +78,10 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/conatct/list', [ConatctController::class, 'index'])->name('conatct.list');
         Route::get('/conatct/details/{id}', [ConatctController::class, 'details'])->name('conatct.details');
         Route::post('/conatct/destroy', [ConatctController::class, 'destory'])->name('conatct.destroy');
+//        homepage seeting
+        Route::get('/homepage/index', [HomeaPageSettingController::class, 'index'])->name('homepage.index');
+        Route::post('/homepage/edit', [HomeaPageSettingController::class, 'edit'])->name('homepage.edit');
+
 
 
     });
