@@ -1,5 +1,11 @@
 
 @extends('frontend.layouts.master')
+@section('push_bofore_style')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="//geodata.solutions/includes/countrystatecity.js"></script>
+
+@endsection
 
 @section('push_after_style')
 <style>
@@ -133,6 +139,41 @@
                                     </div>
                                 </div>
 
+                                <div class="MARITALSTATUS">
+                                    <label>
+                                        Country
+                                    </label>
+                                    <select  name="country" id="countryId" class="form-select countries" aria-label="Default select example">
+                                        <option selected > Select your Country</option>
+
+
+
+                                    </select>
+
+
+                                </div>
+                                <div class="MARITALSTATUS">
+                                    <label>
+                                        Sate
+                                    </label>
+                                    <select name="sate" class="form-select states" aria-label="Default select example" id="stateId">
+                                        <option selected> Select your sate</option>
+                                    </select>
+
+
+                                </div>
+                                <div class="MARITALSTATUS">
+                                    <label>
+                                        City
+                                    </label>
+                                    <select  name="city" class="form-select cities" aria-label="Default select example" id="cityId">
+                                        <option selected> select City</option>
+
+
+                                    </select>
+
+
+                                </div>
 
 
                                 <div class="mt-4 pt-2">

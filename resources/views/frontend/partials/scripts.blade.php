@@ -13,14 +13,11 @@
     // Acc
     $(document).on("click", ".naccs .menu div", function() {
         var numberIndex = $(this).index();
-
         if (!$(this).is("active")) {
             $(".naccs .menu div").removeClass("active");
             $(".naccs ul li").removeClass("active");
-
             $(this).addClass("active");
             $(".naccs ul").find("li:eq(" + numberIndex + ")").addClass("active");
-
             var listItemHeight = $(".naccs ul")
                 .find("li:eq(" + numberIndex + ")")
                 .innerHeight();
@@ -48,7 +45,6 @@
         }
     toastr.success("{{ session('message') }}");
     @endif
-
         @if(Session::has('error'))
         toastr.options =
         {
@@ -57,7 +53,6 @@
         }
     toastr.error("{{ session('error') }}");
     @endif
-
         @if(Session::has('info'))
         toastr.options =
         {
@@ -66,7 +61,6 @@
         }
     toastr.info("{{ session('info') }}");
     @endif
-
         @if(Session::has('warning'))
         toastr.options =
         {
