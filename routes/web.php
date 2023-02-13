@@ -79,6 +79,15 @@ Route::group(['prefix' => 'admin'], function() {
         Route::post('/homepage/edit', [HomeaPageSettingController::class, 'edit'])->name('homepage.edit');
         Route::post('/homepage/store', [HomeaPageSettingController::class, 'store'])->name('homepage.store');
 
+        // story list
+        Route::get('/story/list', [OurStoryController::class, 'index'])->name('story.list');
+        Route::get('/story/view', [OurStoryController::class, 'view'])->name('story.view');
+        Route::get('/story/create', [OurStoryController::class, 'create'])->name('story.create');
+        Route::post('/story/store', [OurStoryController::class, 'store'])->name('story.store');
+        Route::get('/story/edit/{id}', [OurStoryController::class, 'edit'])->name('story.edit');
+        Route::post('/story/update', [OurStoryController::class, 'update'])->name('story.update');
+        Route::post('/story/destroy', [OurStoryController::class, 'destroy'])->name('story.destroy');
+
 
 
     });

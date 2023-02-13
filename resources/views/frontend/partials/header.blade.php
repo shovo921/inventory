@@ -16,5 +16,8 @@
 
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>--}}
 
-<title>@yield('page_title')</title>
+<title>
+
+
+    Matrimoni| @yield('page_title')</title>
 @include('frontend.partials.styles')

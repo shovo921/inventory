@@ -19,7 +19,11 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="/" class="logo">
-                        <img src="{{asset('frontend')}}/assets/images/logo.png">
+{{--                        @if($data)--}}
+{{--                            <img src="{{asset('frontend/server/image')}}/{{$data->logo}}">--}}
+{{--                        @else--}}
+                            <img src="{{asset('frontend')}}/assets/images/logo.png">
+{{--                        @endif--}}
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->

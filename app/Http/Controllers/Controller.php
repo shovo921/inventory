@@ -30,7 +30,7 @@ class Controller extends BaseController
     public function ContactStore(ContactRequest $request)
     {
 
-        $validated = $request->validated();
+//        $validated = $request->validated();
         $adminuser= DB::table('admins')->get();
 
         $contact = Contact::create([
@@ -40,6 +40,7 @@ class Controller extends BaseController
             'subject' => $request->subject,
             'messege' => $request->message,
         ]);
+//        Mail::to($request->email)->send(new Contactmail($contact));
         ContactMailJob::dispatch($contact,$adminuser);
         return redirect()->back()->with('message', 'Data added Successfully');
 
