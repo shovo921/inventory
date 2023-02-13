@@ -100,7 +100,8 @@
             outline: none;
             box-shadow: 0 0 0 2px #ddd;
         }
-    /*    for 2nd flied*/
+
+        /*    for 2nd flied*/
         .preview-container1 {
             display: flex;
             align-items: center;
@@ -159,7 +160,7 @@
 @section('content')
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Home page  Setting</h1>
+            <h1>Home page Setting</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
@@ -185,25 +186,50 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form class="row g-3" action="{{route('homepage.edit')}}" method="post" enctype="multipart/form-data">
+                            <form class="row g-3"
+                                  @if($data)
+                                      action="{{route('homepage.edit')}}"
+                                  @else
+                                      action="{{route('homepage.store')}}"
+                                  @endif
+
+
+                                  method="post" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="title" placeholder="title" name="title" value="{{}}">
+                                        <input type="text" class="form-control" id="title" placeholder="title"
+                                               name="title" @if($data) value="{{$data->title}}" @endif>
                                         <label for="title">Title</label></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" id="phone_number"
+                                               placeholder="Phone Number" @if($data) value="{{$data->phone_number}}"
+                                               @endif name="phone_number">
+                                        <label for="phone_number">Phone Number</label></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="email" placeholder="Email"
+                                               name="email" @if($data)value="{{$data->email}}" @endif >
+                                        <label for="email">Email</label></div>
                                 </div>
 
 
-
                                 <div class="col-md-6">
-{{--                                    <div class="form-floating">--}}
-{{--                                        <input type="file" class="form-control custom-file-input" id="input" placeholder="logo" >--}}
-{{--                                        <label for="input">Logo</label></div>--}}
-{{--                                    </div>--}}
-{{--                                    <img id="preview">--}}
+
                                     <div class="preview-container">
-                                        <img id="preview" class="preview-hidden"  src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930">
+                                        <img id="preview" class="preview-hidden"
+                                             @if($data)
+                                                 src="{{asset('frontend/server/image')}}/{{$data->logo}}"
+                                             @else
+                                                 src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
+                                            @endif
+
+
+                                        >
                                         <div class="icon">
                                             <i class="ri-close-circle-fill delete-icon"></i>
                                         </div>
@@ -216,11 +242,15 @@
                                     {{--                                        <input type="file" class="form-control custom-file-input" id="input" placeholder="logo" >--}}
                                     {{--                                        <label for="input">Logo</label></div>--}}
                                     {{--                                    </div>--}}
-                                    {{--                                    <img id="preview">--}}
-
-
                                     <div class="preview-container1">
-                                        <img id="preview1" class="preview-hidden1" src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930">
+                                        <img id="preview1" class="preview-hidden1"
+                                             @if($data)
+                                                 src="{{asset('frontend/server/image')}}/{{$data->image}}"
+                                             @else
+                                                 src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
+                                            @endif
+
+                                        >
                                         <div class="icon1">
                                             <i class="ri-close-circle-fill delete-icon1"></i>
                                         </div>
@@ -229,7 +259,6 @@
                                     <label for="input1" class="custom-file-input1">please upload banner</label>
 
                                 </div>
-
 
 
                                 <div class="">

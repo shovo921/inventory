@@ -27,11 +27,6 @@ Route::group(['prefix'=>'Admin'], function(){
     Route::get('/login', [AdminController::class, 'index'])->name('index');
 });
 
-//frontend route
-
-Route::get('/', function () {
-    return view('frontend.home');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -47,6 +42,7 @@ require __DIR__.'/auth.php';
 */
 
 //frontend route
+Route::get('/',[Controller::class,'index'])->name('homepage');
 Route::get('/search',[SearchController::class,'index'])->name('search.index');
 Route::post('/search',[SearchController::class,'search'])->name('search');
 Route::post('/contact',[Controller::class,'ContactStore'])->name('contact');
@@ -81,6 +77,7 @@ Route::group(['prefix' => 'admin'], function() {
 //        homepage seeting
         Route::get('/homepage/index', [HomeaPageSettingController::class, 'index'])->name('homepage.index');
         Route::post('/homepage/edit', [HomeaPageSettingController::class, 'edit'])->name('homepage.edit');
+        Route::post('/homepage/store', [HomeaPageSettingController::class, 'store'])->name('homepage.store');
 
 
 

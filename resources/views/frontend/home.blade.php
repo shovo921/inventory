@@ -1,8 +1,13 @@
 @extends('frontend.layouts.master')
 @section('content')
+    <style>
+        .main-banner:before {
+            background-image: url({{asset('frontend/server/image')}}/{{$data->image}});
+        }
+    </style>
 
 
-    <div class="main-banner" id="top">
+    <div class="main-banner" id="top" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

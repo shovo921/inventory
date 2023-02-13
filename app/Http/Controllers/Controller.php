@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Jobs\ContactMailJob;
 use App\Mail\Contactmail;
 use App\Models\Contact;
+use App\Models\HomeSetting;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -21,6 +22,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public  function index(){
+        $data = HomeSetting::all()->first();
+        return view('frontend.home',compact('data'));
+    }
+
     public function ContactStore(ContactRequest $request)
     {
 
@@ -34,8 +40,6 @@ class Controller extends BaseController
             'subject' => $request->subject,
             'messege' => $request->message,
         ]);
-
-
         ContactMailJob::dispatch($contact,$adminuser);
         return redirect()->back()->with('message', 'Data added Successfully');
 
