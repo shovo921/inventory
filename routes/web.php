@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ConatctController;
+use App\Http\Controllers\Admin\HomeBannerController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
@@ -87,6 +89,24 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/story/edit/{id}', [OurStoryController::class, 'edit'])->name('story.edit');
         Route::post('/story/update', [OurStoryController::class, 'update'])->name('story.update');
         Route::post('/story/destroy', [OurStoryController::class, 'destroy'])->name('story.destroy');
+
+        // home banner
+        Route::get('/banner/list', [HomeBannerController::class, 'index'])->name('banner.list');
+        Route::get('/banner/view', [HomeBannerController::class, 'view'])->name('banner.view');
+        Route::get('/banner/create', [HomeBannerController::class, 'create'])->name('banner.create');
+        Route::post('/banner/store', [HomeBannerController::class, 'store'])->name('banner.store');
+        Route::get('/banner/edit/{id}', [HomeBannerController::class, 'edit'])->name('banner.edit');
+        Route::post('/banner/update', [HomeBannerController::class, 'update'])->name('banner.update');
+        Route::post('/banner/destroy', [HomeBannerController::class, 'destroy'])->name('banner.destroy');
+
+        // home service
+        Route::get('/service/list', [ServiceController::class, 'index'])->name('service.list');
+        Route::get('/service/view', [ServiceController::class, 'view'])->name('service.view');
+        Route::get('/service/create', [ServiceController::class, 'create'])->name('service.create');
+        Route::post('/service/store', [ServiceController::class, 'store'])->name('service.store');
+        Route::get('/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
+        Route::post('/service/update', [ServiceController::class, 'update'])->name('service.update');
+        Route::post('/service/destroy', [ServiceController::class, 'destroy'])->name('service.destroy');
 
 
 

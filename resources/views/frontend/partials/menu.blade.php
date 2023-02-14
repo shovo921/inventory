@@ -19,11 +19,14 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="/" class="logo">
-{{--                        @if($data)--}}
-{{--                            <img src="{{asset('frontend/server/image')}}/{{$data->logo}}">--}}
-{{--                        @else--}}
+                        @php
+                            $homeseeting=homeseeting();
+                        @endphp
+                        @if($homeseeting)
+                            <img src="{{asset('frontend/server/image')}}/{{$homeseeting->logo}}">
+                        @else
                             <img src="{{asset('frontend')}}/assets/images/logo.png">
-{{--                        @endif--}}
+                        @endif
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->

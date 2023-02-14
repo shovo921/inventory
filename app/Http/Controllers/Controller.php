@@ -6,7 +6,9 @@ namespace App\Http\Controllers;
 use App\Jobs\ContactMailJob;
 use App\Mail\Contactmail;
 use App\Models\Contact;
+use App\Models\HomeBanner;
 use App\Models\HomeSetting;
+use App\Models\OurStory;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -22,16 +24,24 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public  function index(){
+    public function index()
+    {
+//home banner
+        $bannerdata = HomeBanner::all();
+        //        our story data
+        $ourstory = OurStory::latest()->take(6)->get();
+
+//        home setting data
         $data = HomeSetting::all()->first();
-        return view('frontend.home',compact('data'));
+
+        return view('frontend.home', compact('data', 'ourstory','bannerdata'));
     }
 
     public function ContactStore(ContactRequest $request)
     {
 
 //        $validated = $request->validated();
-        $adminuser= DB::table('admins')->get();
+        $adminuser = DB::table('admins')->get();
 
         $contact = Contact::create([
             'name' => $request->name,
@@ -41,7 +51,7 @@ class Controller extends BaseController
             'messege' => $request->message,
         ]);
 //        Mail::to($request->email)->send(new Contactmail($contact));
-        ContactMailJob::dispatch($contact,$adminuser);
+        ContactMailJob::dispatch($contact, $adminuser);
         return redirect()->back()->with('message', 'Data added Successfully');
 
 

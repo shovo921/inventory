@@ -4,6 +4,11 @@
         .main-banner:before {
             background-image: url({{asset('frontend/server/image')}}/{{$data->image}});
         }
+        .banner-image img{
+           max-height: 333px;
+            max-width: 589px;
+        }
+
     </style>
 
 
@@ -14,45 +19,52 @@
                     <div class="row">
                         <div class="col-lg-6 align-self-center">
                             <div class="owl-carousel owl-banner">
+                                @if($bannerdata)
+                                    @foreach($bannerdata as $bannerdata)
                                 <div class="item header-text">
-                                    <h6>Welcome to Onix Digital</h6>
-                                    <h2>Build <em>your website</em> the best in <span>SEO</span>?</h2>
-                                    <p>This is a professional looking HTML Bootstrap 5 website template brought to you by TemplateMo website.</p>
+                                    <h6>{{$bannerdata->title}}</h6>
+{{--                                    <h2>Build <em>your website</em> the best in <span>SEO</span>?</h2>--}}
+                                    <div class="banner-image">
+                                        <img  class="rounded" src="{{asset('frontend/server/image/banner')}}/{{$bannerdata->image}}">
+                                    </div>
+                                    <p>{{$bannerdata->description}}</p>
                                     <div class="down-buttons">
                                         <div class="main-blue-button-hover">
                                             <a href="#contact">Message Us Now</a>
                                         </div>
                                         <div class="call-button">
-                                            <a href="#"><i class="fa fa-phone"></i> 010-020-0340</a>
+                                            <a href="tel:{{$bannerdata->phone}}"><i class="fa fa-phone"></i> {{$bannerdata->phone}} </a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item header-text">
-                                    <h6>Online Marketing</h6>
-                                    <h2>Get the <em>best ideas</em> for <span>your website</span></h2>
-                                    <p>You are NOT allowed to redistribute this template ZIP file on any Free CSS collection websites. Contact us for more info. Thank you.</p>
-                                    <div class="down-buttons">
-                                        <div class="main-blue-button-hover">
-                                            <a href="#services">Our Services</a>
-                                        </div>
-                                        <div class="call-button">
-                                            <a href="#"><i class="fa fa-phone"></i> 090-080-0760</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item header-text">
-                                    <h6>Video Tutorials</h6>
-                                    <h2>Watch <em>our videos</em> for your <span>projects</span></h2>
-                                    <p>Please <a rel="nofollow" href="https://www.paypal.me/templatemo" target="_blank">support us</a> a little via PayPal if this digital marketing HTML template is useful for you. Thank you.</p>
-                                    <div class="down-buttons">
-                                        <div class="main-blue-button-hover">
-                                            <a href="#video">Watch Videos</a>
-                                        </div>
-                                        <div class="call-button">
-                                            <a href="#"><i class="fa fa-phone"></i> 050-040-0320</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                    @endforeach
+                                @endif
+{{--                                <div class="item header-text">--}}
+{{--                                    <h6>Online Marketing</h6>--}}
+{{--                                    <h2>Get the <em>best ideas</em> for <span>your website</span></h2>--}}
+{{--                                    <p>You are NOT allowed to redistribute this template ZIP file on any Free CSS collection websites. Contact us for more info. Thank you.</p>--}}
+{{--                                    <div class="down-buttons">--}}
+{{--                                        <div class="main-blue-button-hover">--}}
+{{--                                            <a href="#services">Our Services</a>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="call-button">--}}
+{{--                                            <a href="#"><i class="fa fa-phone"></i> 090-080-0760</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="item header-text">--}}
+{{--                                    <h6>Video Tutorials</h6>--}}
+{{--                                    <h2>Watch <em>our videos</em> for your <span>projects</span></h2>--}}
+{{--                                    <p>Please <a rel="nofollow" href="https://www.paypal.me/templatemo" target="_blank">support us</a> a little via PayPal if this digital marketing HTML template is useful for you. Thank you.</p>--}}
+{{--                                    <div class="down-buttons">--}}
+{{--                                        <div class="main-blue-button-hover">--}}
+{{--                                            <a href="#video">Watch Videos</a>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="call-button">--}}
+{{--                                            <a href="#"><i class="fa fa-phone"></i> 050-040-0320</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                     </div>
@@ -210,8 +222,8 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
-                        <h2>Our Recent <em>Projects</em> &amp; Case Studies <span>for Clients</span></h2>
-                        <span>Our Portfolio</span>
+                        <h2>Couple’s <em>Success</em> &amp; Stories </h2>
+                        <span>Our Achievement</span>
                     </div>
                 </div>
             </div>
@@ -220,138 +232,145 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="owl-carousel owl-portfolio">
+                        @if($ourstory)
+                        @foreach($ourstory as $ourstory)
                         <div class="item">
                             <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/portfolio-01.jpg')}}" alt="">
+
+                                <img src="{{asset('frontend/server/image/story')}}/{{$ourstory->image}}" alt="">
                                 <div class="hover-effect">
                                     <div class="inner-content">
-                                        <a rel="sponsored" href="https://templatemo.com/tm-564-plot-listing" target="_parent"><h4>First Project</h4></a>
-                                        <span>Plot Listing</span>
+                                        <a rel="sponsored" href="https://templatemo.com/tm-564-plot-listing" target="_parent"><h4>{{$ourstory->title}}</h4></a>
+                                        <span>{{$ourstory->description}}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/portfolio-02.jpg')}}" alt="">
-                                <div class="hover-effect">
-                                    <div class="inner-content">
-                                        <a href="#"><h4>Project Two</h4></a>
-                                        <span>SEO &amp; Marketing</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/portfolio-03.jpg')}}" alt="">
-                                <div class="hover-effect">
-                                    <div class="inner-content">
-                                        <a rel="sponsored" href="https://templatemo.com/tm-562-space-dynamic" target="_parent"><h4>Third Project</h4></a>
-                                        <span>Space Dynamic SEO</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/portfolio-04.jpg')}}" alt="">
-                                <div class="hover-effect">
-                                    <div class="inner-content">
-                                        <a href="#"><h4>Project Four</h4></a>
-                                        <span>Website Marketing</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/portfolio-01.jpg')}}" alt="">
-                                <div class="hover-effect">
-                                    <div class="inner-content">
-                                        <a href="#"><h4>Fifth Project</h4></a>
-                                        <span>Digital Assets</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/portfolio-02.jpg')}}" alt="">
-                                <div class="hover-effect">
-                                    <div class="inner-content">
-                                        <a href="#"><h4>Sixth Project</h4></a>
-                                        <span>SEO &amp; Marketing</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/portfolio-03.jpg')}}" alt="">
-                                <div class="hover-effect">
-                                    <div class="inner-content">
-                                        <a href="#"><h4>7th Project</h4></a>
-                                        <span>SEO &amp; Marketing</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/portfolio-04.jpg')}}" alt="">
-                                <div class="hover-effect">
-                                    <div class="inner-content">
-                                        <a href="#"><h4>8th Project</h4></a>
-                                        <span>SEO &amp; Marketing</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/portfolio-01.jpg')}}" alt="">
-                                <div class="hover-effect">
-                                    <div class="inner-content">
-                                        <a href="#"><h4>9th Project</h4></a>
-                                        <span>SEO &amp; Marketing</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/portfolio-02.jpg')}}" alt="">
-                                <div class="hover-effect">
-                                    <div class="inner-content">
-                                        <a href="#"><h4>Project Ten</h4></a>
-                                        <span>SEO &amp; Marketing</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/portfolio-03.jpg')}}" alt="">
-                                <div class="hover-effect">
-                                    <div class="inner-content">
-                                        <a href="#"><h4>Project Eleven</h4></a>
-                                        <span>SEO &amp; Marketing</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/portfolio-04.jpg')}}" alt="">
-                                <div class="hover-effect">
-                                    <div class="inner-content">
-                                        <a href="#"><h4>12th Project</h4></a>
-                                        <span>SEO &amp; Marketing</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        @else
+                          <p> no data</p>
+                        @endif
+{{--                        <div class="item">--}}
+{{--                            <div class="thumb">--}}
+{{--                                <img src="{{asset('frontend/assets/images/portfolio-02.jpg')}}" alt="">--}}
+{{--                                <div class="hover-effect">--}}
+{{--                                    <div class="inner-content">--}}
+{{--                                        <a href="#"><h4>Project Two</h4></a>--}}
+{{--                                        <span>SEO &amp; Marketing</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <div class="thumb">--}}
+{{--                                <img src="{{asset('frontend/assets/images/portfolio-03.jpg')}}" alt="">--}}
+{{--                                <div class="hover-effect">--}}
+{{--                                    <div class="inner-content">--}}
+{{--                                        <a rel="sponsored" href="https://templatemo.com/tm-562-space-dynamic" target="_parent"><h4>Third Project</h4></a>--}}
+{{--                                        <span>Space Dynamic SEO</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <div class="thumb">--}}
+{{--                                <img src="{{asset('frontend/assets/images/portfolio-04.jpg')}}" alt="">--}}
+{{--                                <div class="hover-effect">--}}
+{{--                                    <div class="inner-content">--}}
+{{--                                        <a href="#"><h4>Project Four</h4></a>--}}
+{{--                                        <span>Website Marketing</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <div class="thumb">--}}
+{{--                                <img src="{{asset('frontend/assets/images/portfolio-01.jpg')}}" alt="">--}}
+{{--                                <div class="hover-effect">--}}
+{{--                                    <div class="inner-content">--}}
+{{--                                        <a href="#"><h4>Fifth Project</h4></a>--}}
+{{--                                        <span>Digital Assets</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <div class="thumb">--}}
+{{--                                <img src="{{asset('frontend/assets/images/portfolio-02.jpg')}}" alt="">--}}
+{{--                                <div class="hover-effect">--}}
+{{--                                    <div class="inner-content">--}}
+{{--                                        <a href="#"><h4>Sixth Project</h4></a>--}}
+{{--                                        <span>SEO &amp; Marketing</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <div class="thumb">--}}
+{{--                                <img src="{{asset('frontend/assets/images/portfolio-03.jpg')}}" alt="">--}}
+{{--                                <div class="hover-effect">--}}
+{{--                                    <div class="inner-content">--}}
+{{--                                        <a href="#"><h4>7th Project</h4></a>--}}
+{{--                                        <span>SEO &amp; Marketing</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <div class="thumb">--}}
+{{--                                <img src="{{asset('frontend/assets/images/portfolio-04.jpg')}}" alt="">--}}
+{{--                                <div class="hover-effect">--}}
+{{--                                    <div class="inner-content">--}}
+{{--                                        <a href="#"><h4>8th Project</h4></a>--}}
+{{--                                        <span>SEO &amp; Marketing</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <div class="thumb">--}}
+{{--                                <img src="{{asset('frontend/assets/images/portfolio-01.jpg')}}" alt="">--}}
+{{--                                <div class="hover-effect">--}}
+{{--                                    <div class="inner-content">--}}
+{{--                                        <a href="#"><h4>9th Project</h4></a>--}}
+{{--                                        <span>SEO &amp; Marketing</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <div class="thumb">--}}
+{{--                                <img src="{{asset('frontend/assets/images/portfolio-02.jpg')}}" alt="">--}}
+{{--                                <div class="hover-effect">--}}
+{{--                                    <div class="inner-content">--}}
+{{--                                        <a href="#"><h4>Project Ten</h4></a>--}}
+{{--                                        <span>SEO &amp; Marketing</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <div class="thumb">--}}
+{{--                                <img src="{{asset('frontend/assets/images/portfolio-03.jpg')}}" alt="">--}}
+{{--                                <div class="hover-effect">--}}
+{{--                                    <div class="inner-content">--}}
+{{--                                        <a href="#"><h4>Project Eleven</h4></a>--}}
+{{--                                        <span>SEO &amp; Marketing</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <div class="thumb">--}}
+{{--                                <img src="{{asset('frontend/assets/images/portfolio-04.jpg')}}" alt="">--}}
+{{--                                <div class="hover-effect">--}}
+{{--                                    <div class="inner-content">--}}
+{{--                                        <a href="#"><h4>12th Project</h4></a>--}}
+{{--                                        <span>SEO &amp; Marketing</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>

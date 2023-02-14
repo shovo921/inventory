@@ -3,10 +3,21 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="about footer-item">
+
+                    @php
+                        $homeseeting=homeseeting();
+                    @endphp
+
                     <div class="logo">
-                        <a href="#"><img src="{{asset('frontend')}}/assets/images/logo.png" alt="Onix Digital TemplateMo"></a>
+                        <a href="/">
+                            @if($homeseeting)
+                                <img src="{{asset('frontend/server/image')}}/{{$homeseeting->logo}}">
+                            @else
+                                <img src="{{asset('frontend')}}/assets/images/logo.png">
+                            @endif
+                        </a>
                     </div>
-                    <a href="#">info@company.com</a>
+                    <a href="mailto:{{$homeseeting->email}}">{{$homeseeting->email}}</a>
                     <ul>
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>

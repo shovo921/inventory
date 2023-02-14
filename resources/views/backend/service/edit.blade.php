@@ -91,11 +91,11 @@
 @section('content')
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Home Page  Banner Create</h1>
+            <h1>Our Service Edit</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-                    <li class="breadcrumb-item active">Create</li>
+                    <li class="breadcrumb-item active">Edit</li>
                 </ol>
             </nav>
         </div>
@@ -106,7 +106,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Create Banner </h5>
+                            <h5 class="card-title">Edit Service </h5>
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -117,28 +117,22 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form class="row g-3" action="{{route('banner.store')}}" method="post" enctype="multipart/form-data">
+                            <form class="row g-3" action="{{route('service.update')}}" method="post" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="title" placeholder="title" value="{{ old('title') }}"
+                                        <input type="text" class="form-control" id="title" placeholder="title" value="{{$data->title}}"
                                                name="title">
-                                        <label for="title">Title</label></div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <div class="form-floating">
-                                        <input type="number" class="form-control" id="phone" placeholder="phone number" value="{{ old('phone') }}"
-                                               name="phone">
-                                        <label for="title">Phone Number</label></div>
+                                        <input type="number" value="{{$data->id}}" hidden="hidden" name="id">
+                                        <label for="title">Title </label></div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div class="form-floating">
                                         <div>
                                             <textarea placeholder="Description" class="form-control"
-                                                      style="height: 100px" name="description">{{ old('description') }}</textarea>
+                                                       style="height: 100px" name="description">{{$data->description}}</textarea>
                                         </div>
                                         <label></label></div>
 
@@ -149,13 +143,13 @@
 
                                     <div class="preview-container">
                                         <img id="preview" class="preview-hidden"
-                                             src="{{asset('backend/assets/img/NoAvailable.jpg')}}">
+                                             src="{{asset('frontend/server/image/service')}}/{{$data->image}}">
                                         <div class="icon">
                                             <i class="ri-close-circle-fill delete-icon"></i>
                                         </div>
                                     </div>
-                                    <input type="file" id="input" style="display: none;" name="image">
-                                    <label for="input" class="custom-file-input">please upload Banner Image</label>
+                                    <input type="file" id="input"  name="image">
+                                    <label for="input" class="custom-file-input">please upload new image icon</label>
                                 </div>
 
 

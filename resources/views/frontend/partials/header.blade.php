@@ -12,12 +12,11 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-
+@php
+    $homeseeting=homeseeting();
+@endphp
 
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>--}}
 
-<title>
-
-
-    Matrimoni| @yield('page_title')</title>
+<title>  {{$homeseeting->title}}| @yield('page_title')</title>
 @include('frontend.partials.styles')

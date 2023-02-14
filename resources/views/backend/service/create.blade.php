@@ -91,7 +91,7 @@
 @section('content')
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Home Page  Banner Create</h1>
+            <h1>Our Service Create</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
@@ -106,7 +106,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Create Banner </h5>
+                            <h5 class="card-title">Create Service </h5>
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -117,7 +117,7 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form class="row g-3" action="{{route('banner.store')}}" method="post" enctype="multipart/form-data">
+                            <form class="row g-3" action="{{route('service.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="col-md-12">
@@ -129,16 +129,9 @@
 
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="number" class="form-control" id="phone" placeholder="phone number" value="{{ old('phone') }}"
-                                               name="phone">
-                                        <label for="title">Phone Number</label></div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <div class="form-floating">
                                         <div>
                                             <textarea placeholder="Description" class="form-control"
-                                                      style="height: 100px" name="description">{{ old('description') }}</textarea>
+                                                       style="height: 100px" name="description">{{ old('description') }}</textarea>
                                         </div>
                                         <label></label></div>
 
@@ -155,7 +148,7 @@
                                         </div>
                                     </div>
                                     <input type="file" id="input" style="display: none;" name="image">
-                                    <label for="input" class="custom-file-input">please upload Banner Image</label>
+                                    <label for="input" class="custom-file-input">please upload Service Image icon</label>
                                 </div>
 
 

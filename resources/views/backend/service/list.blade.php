@@ -16,7 +16,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
 
-                    <li class="breadcrumb-item active">Story list</li>
+                    <li class="breadcrumb-item active">Service list</li>
                 </ol>
             </nav>
         </div>
@@ -25,7 +25,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Our story list</h5>
+                            <h5 class="card-title">Our Service list</h5>
                             <table class="table datatable">
                                 <thead>
                                 <tr>
@@ -51,12 +51,12 @@
                                     <td>{{$data1->description }}</td>
                                     <td>
 
-                                        <img class="tb-image" src="{{asset('frontend/server/image/story')}}/{{$data1->image}}" >
+                                        <img class="tb-image" src="{{asset('frontend/server/image/service')}}/{{$data1->image}}" >
 
                                     </td>
 {{--                                    <td style="width:100%;" class="text-center"><img class="img-responsive" src="{{asset('frontend/server/image/story')}}/{{$data1->image}}"/>--}}
 
-                                    <td><a class="btn btn-success btn-sm" href="{{ route('story.edit', ['id' => $data1->id]) }}" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Tooltip on top"><i class="ri-edit-box-line"></i></a>
+                                    <td><a class="btn btn-success btn-sm" href="{{ route('service.edit', ['id' => $data1->id]) }}" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Tooltip on top"><i class="ri-edit-box-line"></i></a>
 
                                         <a type="button" class="btn btn-danger btn-sm delete"  role="button" title="please, click to delete Contact"  data-bs-toggle="modal" data-bs-target="#basicModal" onclick="myFunction({{$data1->id}})" ><i class="bi bi-x-circle"></i></a></td>
                                 </tr>
@@ -74,7 +74,7 @@
 
                                 <div class="modal fade" id="basicModal" tabindex="-1" style="display: none;" aria-hidden="true">
                                     <div class="modal-dialog">
-                                        <form action="{{route('story.destroy')}}" method="post">
+                                        <form action="{{route('service.destroy')}}" method="post">
                                             @csrf
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -106,6 +106,7 @@
         let id = e;
         document.getElementById("id").value = id;
     }
+
 </script>
 
 @endsection
