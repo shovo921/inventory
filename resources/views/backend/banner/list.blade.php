@@ -1,6 +1,14 @@
 @extends('.backend.admin.layouts.master')
 
 @section('content')
+<style>
+
+    .tb-image{
+        width: 200px%;
+        height: 150px;
+    }
+
+</style>
     <main id="main" class="main">
         <div class="pagetitle">
             <h1>Banner list</h1>
@@ -8,7 +16,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
 
-                    <li class="breadcrumb-item active">banner list</li>
+                    <li class="breadcrumb-item active">Banner list</li>
                 </ol>
             </nav>
         </div>
@@ -22,31 +30,84 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Position</th>
-                                    <th scope="col">Age</th>
-                                    <th scope="col">Start Date</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">phone</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <?php
 
-                                @for ($x = 0; $x <= 20; $x++)
+                                $number=1;
+                                ?>
+                                @if($data)
+
+                                @foreach($data as $data1)
 
                                 <tr>
-                                    <th scope="row">5</th>
-                                    <td>Raheem Lehner</td>
-                                    <td>Dynamic Division Officer</td>
-                                    <td>47</td>
-                                    <td>2011-04-19</td>
+                                    <th scope="row">{{$number++ }}</th>
+                                    <td>{{ Str::limit($data1->title, 20)}}</td>
+                                    <td>{{$data1->phone}}</td>
+                                    <td> {{ Str::limit($data1->description, 20) }}</td>
+                                    <td>
+
+                                        <img class="tb-image" src="{{asset('frontend/server/image/banner')}}/{{$data1->image}}" >
+
+                                    </td>
+{{--                                    <td style="width:100%;" class="text-center"><img class="img-responsive" src="{{asset('frontend/server/image/story')}}/{{$data1->image}}"/>--}}
+
+                                    <td><a class="btn btn-success btn-sm" href="{{ route('banner.edit', ['id' => $data1->id]) }}" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Tooltip on top"><i class="ri-edit-box-line"></i></a>
+
+                                        <a type="button" class="btn btn-danger btn-sm delete"  role="button" title="please, click to delete Contact"  data-bs-toggle="modal" data-bs-target="#basicModal" onclick="myFunction({{$data1->id}})" ><i class="bi bi-x-circle"></i></a></td>
                                 </tr>
-                                @endfor
+
+
+
+                                @endforeach
+                                @endif
+
+
 
                                 </tbody>
                             </table>
+                            <div class="card-body">
+
+                                <div class="modal fade" id="basicModal" tabindex="-1" style="display: none;" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <form action="{{route('banner.destroy')}}" method="post">
+                                            @csrf
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <input type="number" id="id" name="id"  hidden=""/>
+                                                <h5 class="modal-title">Are you want to delete ?</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+
+                                            <div class="modal-footer"> <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-danger"> Delete</button></div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+@endsection
+
+@section('push_bofore_script')
+
+<script>
+    function myFunction(e) {
+        let id = e;
+        document.getElementById("id").value = id;
+    }
+</script>
+
 @endsection

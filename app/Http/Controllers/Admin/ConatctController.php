@@ -27,7 +27,7 @@ class ConatctController extends Controller
     {
         $id = $request->id;
         $delete = Contact::where('id', $id)->firstorfail()->delete();
-        return redirect()->back()->with('message', 'sussesfully deleteed');
+        return redirect()->back()->with('warning', 'Success! Your data has been deleted.');
 
     }
 }

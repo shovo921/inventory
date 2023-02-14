@@ -56,7 +56,7 @@ class HomeaPageSettingController extends Controller
 
 
         // Redirect the user back with a success message
-        return redirect()->back()->with('message', 'Sucessfully Insert');
+        return redirect()->back()->with('message', 'Congratulations, your information has been saved.');
     }
 
 
@@ -107,6 +107,6 @@ class HomeaPageSettingController extends Controller
 
 
         // Redirect the user back with a success message
-        return redirect()->back()->with('message', 'Sucessfully  Updated');
+        return redirect()->back()->with('info', 'Your information has been successfully edited');
     }
 }

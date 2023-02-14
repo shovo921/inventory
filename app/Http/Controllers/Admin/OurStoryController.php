@@ -51,7 +51,7 @@ class OurStoryController extends Controller
 
 
         // Redirect the user back with a success message
-        return redirect()->back()->with('message', 'Sucessfully Insert');
+        return redirect()->back()->with('message', 'Success! Your data has been inserted.');
     }
 
     public function edit($id)
@@ -99,7 +99,7 @@ class OurStoryController extends Controller
 
 
         // Redirect the user back with a success message
-        return redirect()->back()->with('message', 'Sucessfully  Updated');
+        return redirect()->back()->with('info', 'Success! Your data has been updated.');
     }
 
     public  function destroy(Request $request)
@@ -110,6 +110,6 @@ class OurStoryController extends Controller
         unlink(public_path('frontend/server/image/story/' . $data->image));
         $data->delete();
         // Redirect the user back with a success message
-        return redirect()->back()->with('message', 'Sucessfully Deleted');
+        return redirect()->back()->with('warning', 'Success! Your data has been deleted.');
     }
 }
