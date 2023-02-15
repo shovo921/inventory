@@ -8,6 +8,50 @@
            max-height: 333px;
             max-width: 589px;
         }
+        .search-form {
+            display: flex;
+            /*justify-content: center;*/
+            align-items: center;
+        }
+
+        .search-form input[type="text"],
+        .search-form input[type="number"],
+        .search-form select {
+            padding: 0.5rem;
+            margin-right: 0.5rem;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .search-form select {
+            flex: 1;
+            max-width: 200px;
+            background-color: #fff;
+        }
+
+        .search-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        .search-header {
+            background-color: #4c3e4a9e;
+            padding: 30px;
+            position: absolute;
+            z-index: 1;
+            margin-left: -53%;
+            margin-top: 32%;
+            border-radius:10px;
+
+        }
+
+
+        .banner-top{
+            position: relative;
+        }
 
     </style>
 
@@ -17,7 +61,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-lg-6 align-self-center">
+                        <div class="col-lg-6 align-self-center banner-top">
                             <div class="owl-carousel owl-banner">
                                 @if($bannerdata)
                                     @foreach($bannerdata as $bannerdata)
@@ -65,6 +109,24 @@
 {{--                                        </div>--}}
 {{--                                    </div>--}}
 {{--                                </div>--}}
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="search-header">
+
+                                <form class="search-form">
+                                    <input type="text" placeholder="Name">
+                                    <input type="number" placeholder="Min age">
+                                    <input type="number" placeholder="Max age">
+                                    <select>
+                                        <option value="">Language</option>
+                                        <option value="apartment">Apartment</option>
+                                        <option value="house">House</option>
+                                        <option value="villa">Villa</option>
+                                    </select>
+
+                                    <button type="submit">Search</button>
+                                </form>
                             </div>
                         </div>
                     </div>
