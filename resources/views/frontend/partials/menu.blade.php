@@ -38,7 +38,11 @@
                         <li class="scroll-to-section"><a href="{{url('/#portfolio')}}">Portfolio</a></li>
                         <li class="scroll-to-section"><a href="{{url('/#video')}}">Videos</a></li>
                         <li class="scroll-to-section"><a href="{{url('/#contact')}}">Contact Us</a></li>
+                        @if (Auth::guest())
                         <li class="scroll-to-section"><div class="main-red-button-hover"><a href="{{route('login')}}">Login / Register</a></div></li>
+                        @else
+                            <li class="scroll-to-section"><div class="main-red-button-hover"><a href="{{route('login')}}">Dashboard</a></div></li>
+                        @endif
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>

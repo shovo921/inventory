@@ -52,6 +52,13 @@
         .banner-top{
             position: relative;
         }
+        .search-form input[type="text"], .search-form input[type="number"], .search-form select {
+            padding: 0.5rem;
+            margin-right: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            width: 156px;
+        }
 
     </style>
 
@@ -114,15 +121,22 @@
                         <div class="col-lg-6">
                             <div class="search-header">
 
-                                <form class="search-form">
-                                    <input type="text" placeholder="Name">
+                                <form class="search-form" action="" method="" >
+                                    @csrf
+                                    <select>
+                                        <option value="">Looking for</option>
+                                        <option value="apartment">Bride</option>
+                                        <option value="house">Groom</option>
+
+                                    </select>
                                     <input type="number" placeholder="Min age">
                                     <input type="number" placeholder="Max age">
                                     <select>
-                                        <option value="">Language</option>
-                                        <option value="apartment">Apartment</option>
-                                        <option value="house">House</option>
-                                        <option value="villa">Villa</option>
+                                        <option value="">Religion</option>
+                                        <option value="Hinduism">Hinduism</option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Christianity">Buddhism</option>
+                                        <option value="Christianity">Buddhism</option>
                                     </select>
 
                                     <button type="submit">Search</button>
