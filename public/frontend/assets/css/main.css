@@ -94,4 +94,6 @@
 .textarea-contact textarea{
     border-color: #9bdbf8;
 }
-
+.our-portfolio .item .thumb img{
+    height: 400px;
+}

@@ -168,66 +168,77 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="owl-carousel owl-services">
+
+                        @if(count($service) >0)
+                          @foreach($service as $service)
                         <div class="item">
-                            <h4>Learn More about our Guidelines</h4>
-                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-01.png')}}" alt=""></div>
-                            <p>Feel free to use this template for your business</p>
+                            <h4>{{$service->title}}</h4>
+                            <div class="icon"><img src="{{asset('frontend/server/image/service')}}/{{$service->image}}" alt="{{$service->title}}"></div>
+                            <p>{{$service->description}}</p>
                         </div>
-                        <div class="item">
-                            <h4>Develop The Best Strategy for Business</h4>
-                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-02.png')}}" alt=""></div>
-                            <p>Get to know more about the topic in details</p>
-                        </div>
-                        <div class="item">
-                            <h4>UI / UX Design and Development</h4>
-                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-03.png')}}" alt=""></div>
-                            <p>Get to know more about the topic in details</p>
-                        </div>
-                        <div class="item">
-                            <h4>Discover &amp; Explore our SEO Tips</h4>
-                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-04.png')}}" alt=""></div>
-                            <p>Feel free to use this template for your business</p>
-                        </div>
-                        <div class="item">
-                            <h4>Optimizing your websites for Speed</h4>
-                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-01.png')}}" alt=""></div>
-                            <p>Get to know more about the topic in details</p>
-                        </div>
-                        <div class="item">
-                            <h4>See The Strategy In The Market</h4>
-                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-02.png')}}" alt=""></div>
-                            <p>Get to know more about the topic in details</p>
-                        </div>
-                        <div class="item">
-                            <h4>Best Content Ideas for your pages</h4>
-                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-03.png')}}" alt=""></div>
-                            <p>Feel free to use this template for your business</p>
-                        </div>
-                        <div class="item">
-                            <h4>Optimizing Speed for your web pages</h4>
-                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-04.png')}}" alt=""></div>
-                            <p>Get to know more about the topic in details</p>
-                        </div>
-                        <div class="item">
-                            <h4>Accessibility for mobile viewing</h4>
-                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-01.png')}}" alt=""></div>
-                            <p>Get to know more about the topic in details</p>
-                        </div>
-                        <div class="item">
-                            <h4>Content Ideas for your next project</h4>
-                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-02.png')}}" alt=""></div>
-                            <p>Feel free to use this template for your business</p>
-                        </div>
-                        <div class="item">
-                            <h4>UI &amp; UX Design &amp; Development</h4>
-                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-03.png')}}" alt=""></div>
-                            <p>Get to know more about the topic in details</p>
-                        </div>
-                        <div class="item">
-                            <h4>Discover the digital marketing trend</h4>
-                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-04.png')}}" alt=""></div>
-                            <p>Get to know more about the topic in details</p>
-                        </div>
+                            @endforeach
+                        @else
+                            <div class="item">
+                                <h4>demo data</h4>
+                                <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-01.png')}}" alt=""></div>
+                                <p>please upload your service</p>
+                            </div>
+                        @endif
+{{--                        <div class="item">--}}
+{{--                            <h4>Develop The Best Strategy for Business</h4>--}}
+{{--                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-02.png')}}" alt=""></div>--}}
+{{--                            <p>Get to know more about the topic in details</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <h4>UI / UX Design and Development</h4>--}}
+{{--                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-03.png')}}" alt=""></div>--}}
+{{--                            <p>Get to know more about the topic in details</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <h4>Discover &amp; Explore our SEO Tips</h4>--}}
+{{--                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-04.png')}}" alt=""></div>--}}
+{{--                            <p>Feel free to use this template for your business</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <h4>Optimizing your websites for Speed</h4>--}}
+{{--                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-01.png')}}" alt=""></div>--}}
+{{--                            <p>Get to know more about the topic in details</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <h4>See The Strategy In The Market</h4>--}}
+{{--                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-02.png')}}" alt=""></div>--}}
+{{--                            <p>Get to know more about the topic in details</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <h4>Best Content Ideas for your pages</h4>--}}
+{{--                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-03.png')}}" alt=""></div>--}}
+{{--                            <p>Feel free to use this template for your business</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <h4>Optimizing Speed for your web pages</h4>--}}
+{{--                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-04.png')}}" alt=""></div>--}}
+{{--                            <p>Get to know more about the topic in details</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <h4>Accessibility for mobile viewing</h4>--}}
+{{--                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-01.png')}}" alt=""></div>--}}
+{{--                            <p>Get to know more about the topic in details</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <h4>Content Ideas for your next project</h4>--}}
+{{--                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-02.png')}}" alt=""></div>--}}
+{{--                            <p>Feel free to use this template for your business</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <h4>UI &amp; UX Design &amp; Development</h4>--}}
+{{--                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-03.png')}}" alt=""></div>--}}
+{{--                            <p>Get to know more about the topic in details</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="item">--}}
+{{--                            <h4>Discover the digital marketing trend</h4>--}}
+{{--                            <div class="icon"><img src="{{asset('frontend/assets/images/service-icon-04.png')}}" alt=""></div>--}}
+{{--                            <p>Get to know more about the topic in details</p>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>

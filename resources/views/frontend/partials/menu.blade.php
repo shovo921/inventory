@@ -41,7 +41,7 @@
                         @if (Auth::guest())
                         <li class="scroll-to-section"><div class="main-red-button-hover"><a href="{{route('login')}}">Login / Register</a></div></li>
                         @else
-                            <li class="scroll-to-section"><div class="main-red-button-hover"><a href="{{route('login')}}">Dashboard</a></div></li>
+                            <li class="scroll-to-section"><div class="main-red-button-hover"><a href="{{route('userprofile.index')}}">Dashboard</a></div></li>
                         @endif
                     </ul>
                     <a class='menu-trigger'>

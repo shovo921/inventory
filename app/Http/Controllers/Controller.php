@@ -9,6 +9,7 @@ use App\Models\Contact;
 use App\Models\HomeBanner;
 use App\Models\HomeSetting;
 use App\Models\OurStory;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -30,11 +31,13 @@ class Controller extends BaseController
         $bannerdata = HomeBanner::all();
         //        our story data
         $ourstory = OurStory::latest()->take(6)->get();
+//        our service
+        $service=Service::all();
 
 //        home setting data
         $data = HomeSetting::all()->first();
 
-        return view('frontend.home', compact('data', 'ourstory','bannerdata'));
+        return view('frontend.home', compact('data', 'ourstory','bannerdata','service'));
     }
 
     public function ContactStore(ContactRequest $request)

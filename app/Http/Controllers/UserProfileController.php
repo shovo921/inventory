@@ -9,4 +9,9 @@ class UserProfileController extends Controller
  public  function index(){
      return view('frontend.userprofile');
  }
+ public function image(Request $request)
+ {
+dd($request->all());
+     }
+
 }

@@ -16,6 +16,8 @@ class ContactMailJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     public  $data;
     public $adminuser;
+    public $tries = 3;
+    public $backoff = [10, 30, 60];
     /**
      * Create a new job instance.
      *
@@ -34,10 +36,11 @@ class ContactMailJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->data->email)->send(new Contactmail($this->data));
         foreach ($this->adminuser as $user)
         {
             Mail::to($user->email)->send(new Contactmail($this->data));
         }
+        Mail::to($this->data->email)->send(new Contactmail($this->data));
+
     }
 }
