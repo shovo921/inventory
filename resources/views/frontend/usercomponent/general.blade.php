@@ -1,5 +1,5 @@
 <div class="tab-pane fade active show" id="account-general">
-    <form>
+
     <div class="card-body media align-items-center">
         <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""
              class="d-block ui-w-80">
@@ -36,5 +36,7 @@
             <input type="text" class="form-control" value="Company Ltd.">
         </div>
     </div>
-    </form>
+
+
+
 </div>

@@ -16,8 +16,8 @@
                         <div class="card mb-3">
                             <div class="card-body">
                                 <div class="pt-4 pb-2">
-                                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                                    <p class="text-center small">Enter your username & password to login</p>
+                                    <h5 class="card-title text-center pb-0 fs-4">Welocme to inventory Sysytem</h5>
+                                    <p class="text-center small">Login to Your Account</p>
                                 </div>
 
                                 <!-- Session Status -->
@@ -57,7 +57,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="credits"> Loved by <a href="">We</a></div>
+                        <div class="credits"> Development by <a href="https://shovo.netlify.com/">Shovo</a></div>
                     </div>
                 </div>
             </div>

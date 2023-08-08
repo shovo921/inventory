@@ -6,10 +6,10 @@ namespace App\Http\Controllers;
 use App\Jobs\ContactMailJob;
 use App\Mail\Contactmail;
 use App\Models\Contact;
-use App\Models\HomeBanner;
+use App\Models\Brand;
 use App\Models\HomeSetting;
 use App\Models\OurStory;
-use App\Models\Service;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -28,11 +28,11 @@ class Controller extends BaseController
     public function index()
     {
 //home banner
-        $bannerdata = HomeBanner::all();
+        $bannerdata = Brand::all();
         //        our story data
         $ourstory = OurStory::latest()->take(6)->get();
 //        our service
-        $service=Service::all();
+        $service=Category::all();
 
 //        home setting data
         $data = HomeSetting::all()->first();

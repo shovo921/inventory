@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\HomeBanner;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class HomeBannerController extends Controller
 {
     public function index()
     {
-        $data = HomeBanner::all();
-        return view('backend.banner.list', compact('data'));
+        $data = Brand::all();
+        return view('backend.brand.list', compact('data'));
     }
 
     public function create()
     {
 
-        return view('backend.banner.create');
+        return view('backend.brand.create');
     }
 
     public function store(Request $request)
@@ -27,7 +27,6 @@ class HomeBannerController extends Controller
         $request->validate([
             'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title' => 'required',
-            'phone' => 'required',
             'description' => 'required',
         ]);
 
@@ -42,10 +41,9 @@ class HomeBannerController extends Controller
 
         }
 
-        $data = new HomeBanner();
+        $data = new Brand();
         $data->image = $bannerimage;
         $data->title = $request->title;
-        $data->phone = $request->phone;
         $data->description = $request->description;
         $data->save();
 
@@ -56,9 +54,9 @@ class HomeBannerController extends Controller
 
     public function edit($id)
     {
-        $data = HomeBanner::where('id', $id)->get()->first();
+        $data = Brand::where('id', $id)->get()->first();
 
-        return view('backend.banner.edit', compact('data'));
+        return view('backend.brand.edit', compact('data'));
     }
 
 
@@ -68,7 +66,6 @@ class HomeBannerController extends Controller
         $request->validate([
             'image' => 'nullable|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title' => 'required',
-            'phone' => 'required',
             'description' => 'required',
         ]);
 
@@ -77,7 +74,7 @@ class HomeBannerController extends Controller
 
         $randomNumber = random_int(100000, 999999);
 
-        $data = HomeBanner::where('id', $id)->get()->first();
+        $data = Brand::where('id', $id)->get()->first();
 
 
         if ($request->has('image')) {
@@ -92,10 +89,9 @@ class HomeBannerController extends Controller
         }
 
 
-        $data = HomeBanner::find($data->id);
+        $data = Brand::find($data->id);
         $data->image = $logo;
         $data->title = $request->title;
-        $data->phone = $request->phone;
         $data->description = $request->description;
         $data->save();
 
@@ -107,7 +103,7 @@ class HomeBannerController extends Controller
     public  function destroy(Request $request)
     {
         $id =$request->id;
-        $data = HomeBanner::find($id);
+        $data = Brand::find($id);
 
         unlink(public_path('frontend/server/image/banner/' . $data->image));
         $data->delete();

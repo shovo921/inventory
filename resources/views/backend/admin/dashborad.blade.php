@@ -6,7 +6,7 @@
             <h1>Dashboard</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
             </nav>
@@ -29,12 +29,12 @@
                                     </ul>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Sales <span>| Today</span></h5>
+                                    <h5 class="card-title">Sales <span>| Total</span></h5>
                                     <div class="d-flex align-items-center">
                                         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"> <i class="bi bi-cart"></i></div>
                                         <div class="ps-3">
-                                            <h6>145</h6>
-                                            <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                                            <h6>{{$total_prodct}}</h6>
+                                            <span class="text-success small pt-1 fw-bold">৳{{$total_sales}}</span> <span class="text-muted small pt-2 ps-1">Price</span>
                                         </div>
                                     </div>
                                 </div>
@@ -54,12 +54,12 @@
                                     </ul>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Revenue <span>| This Month</span></h5>
+                                    <h5 class="card-title">Total <span>| Product</span></h5>
                                     <div class="d-flex align-items-center">
                                         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"> <i class="bi bi-currency-dollar"></i></div>
                                         <div class="ps-3">
-                                            <h6>$3,264</h6>
-                                            <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                                            <h6>{{$total_product}}</h6>
+{{--                                            <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>--}}
                                         </div>
                                     </div>
                                 </div>
@@ -79,11 +79,11 @@
                                     </ul>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Customers <span>| This Year</span></h5>
+                                    <h5 class="card-title">Brand <span>| Total</span></h5>
                                     <div class="d-flex align-items-center">
                                         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center"> <i class="bi bi-people"></i></div>
                                         <div class="ps-3">
-                                            <h6>1244</h6>
+                                            <h6>{{$total_brand}}</h6>
                                             <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
                                         </div>
                                     </div>
@@ -104,7 +104,7 @@
                                     </ul>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Reports <span>/Today</span></h5>
+                                    <h5 class="card-title">Total <span>/Sales</span></h5>
                                     <div id="reportsChart"></div>
                                     <script>document.addEventListener("DOMContentLoaded", () => {
                                             new ApexCharts(document.querySelector("#reportsChart"), {
@@ -179,48 +179,34 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Customer</th>
                                             <th scope="col">Product</th>
+                                            <th scope="col">Quantity</th>
                                             <th scope="col">Price</th>
                                             <th scope="col">Status</th>
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($sales_data as $data1)
+                                            @php
+                                                $product =\App\Models\Product::where('id',$data1->product_id)->first();
+                                            @endphp
                                         <tr>
-                                            <th scope="row"><a href="#">#2457</a></th>
-                                            <td>Brandon Jacob</td>
-                                            <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                                            <td>$64</td>
-                                            <td><span class="badge bg-success">Approved</span></td>
+
+                                            <th scope="row"><a href="#">#00{{$data1->id}}</a></th>
+                                            <td><a href="{{ route('shoping.card', ['product_id' => $data1->id]) }}" class="text-primary">{{$product->name}}</a></td>
+                                            <td>{{$data1->quantity}}</td>
+                                            <td>{{$product->price}}</td>
+                                            <td>
+                                                @if($data1->status ==1 )
+                                                    <span class="badge bg-primary">Submitted</span>
+                                                @elseif($data1->status ==2)
+                                                    <span class="badge bg-success">Approved</span>
+                                                @elseif($data1->status ==3)
+                                                    <span class="badge bg-danger">Rejected</span>
+                                                @endif</td>
+
                                         </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#2147</a></th>
-                                            <td>Bridie Kessler</td>
-                                            <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                                            <td>$47</td>
-                                            <td><span class="badge bg-warning">Pending</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#2049</a></th>
-                                            <td>Ashleigh Langosh</td>
-                                            <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                                            <td>$147</td>
-                                            <td><span class="badge bg-success">Approved</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#2644</a></th>
-                                            <td>Angus Grady</td>
-                                            <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                                            <td>$67</td>
-                                            <td><span class="badge bg-danger">Rejected</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#2644</a></th>
-                                            <td>Raheem Lehner</td>
-                                            <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                                            <td>$165</td>
-                                            <td><span class="badge bg-success">Approved</span></td>
-                                        </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -243,7 +229,7 @@
                             </ul>
                         </div>
                         <div class="card-body pb-0">
-                            <h5 class="card-title">Website Traffic <span>| Today</span></h5>
+                            <h5 class="card-title">Category <span>| Sub Category</span></h5>
                             <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
                             <script>document.addEventListener("DOMContentLoaded", () => {
                                     echarts.init(document.querySelector("#trafficChart")).setOption({
@@ -273,26 +259,14 @@
                                             labelLine: {
                                                 show: false
                                             },
-                                            data: [{
-                                                value: 1048,
-                                                name: 'Search Engine'
+                                            data: [
+                                                @foreach($category_data as $data)
+                                                {
+                                                value: 100,
+                                                name: '{{$data->title}}'
                                             },
-                                                {
-                                                    value: 735,
-                                                    name: 'Direct'
-                                                },
-                                                {
-                                                    value: 580,
-                                                    name: 'Email'
-                                                },
-                                                {
-                                                    value: 484,
-                                                    name: 'Union Ads'
-                                                },
-                                                {
-                                                    value: 300,
-                                                    name: 'Video Ads'
-                                                }
+                                                    @endforeach
+
                                             ]
                                         }]
                                     });
